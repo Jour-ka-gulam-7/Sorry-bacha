@@ -42,6 +42,7 @@
             width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
             animation: fadeIn 1.2s ease-in-out;
+            position: relative;
         }
 
         .heart-icon {
@@ -58,7 +59,7 @@
             font-weight: 700;
         }
 
-        p {
+        .prompt-text {
             font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 20px;
@@ -113,6 +114,7 @@
             color: white;
         }
 
+        /* Dynamic Shayari Box */
         #shayari-box {
             display: none;
             margin-top: 15px;
@@ -139,6 +141,28 @@
             border: 2px dashed var(--lavender-deep);
             animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-size: 1.1rem;
+        }
+
+        /* Cute Back Button Styling */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #f3e8ff;
+            color: var(--lavender-deep);
+            border: 1px solid var(--lavender-mid);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--lavender-mid);
+            transform: translateX(-3px);
         }
 
         .floating-heart {
@@ -178,19 +202,19 @@
     </audio>
 
     <div class="container">
-        <div class="heart-icon">🔮✨</div>
+        <div class="hearcontaine>🩷🪽</div>
         <h1>I'm So Sorry, Bachaa...</h1>
-        <p>To my 🐣, my sweetheart..</p>
+        <p class="prompt-text">To my 🐣, my sweetheart..</p>
         
-        <div class="letter-box">
+        <div class="letter-box" id="mainLetter">
             Hey <b>bacha</b>... I am sorry kl jldi sone ke liyee..!! Mujhe pata hai apne bahut jada intezaar kiya thaa..!! You’re my little baby and getting to talk to you at the end of the day is my favorite part of the day...! 🌷💖
             <br><br>
             Mera seer kl bahut jada drd ho raha tha..!! 😭 But that's no excuse for keeping My <b>baby</b> waiting...!! Please forgive your sleepy idiot..!!🥹
         </div>
 
-        <p style="font-weight: bold;">Maaf kiya?</p>
+        <p style="font-weight: bold;" id="questionText">Maaf kiya?</p>
         
-        <div class="button-group">
+        <div class="button-group" id="btnGroup">
             <button class="btn btn-yes" onclick="revealForgiveness()">Haan thik hai, Maaf kr diya..!🥰</button>
             <button class="btn btn-no" id="noBtn" onmouseover="handleNoInteraction()" onclick="handleNoInteraction()">Nahi krungi! 😤</button>
         </div>
@@ -202,6 +226,8 @@
             <span style="font-size: 1.3rem;">I Love You sooooo mucchhhhhhhh!!! 💜✨</span>
             <br><br>
             <span style="font-size: 0.85rem; font-weight: normal; color: #6b21a8;">(Suno... track play ho gaya! 🎵)</span>
+            <br>
+            <button class="btn-back" onclick="resetPage()">👈Go back!</button>
         </div>
     </div>
 
@@ -209,17 +235,22 @@
         let shayariTriggered = false;
 
         function revealForgiveness() {
-            document.getElementById('noBtn').style.display = 'none';
+            // Hide normal layout items smoothly
+            document.getElementById('btnGroup').style.display = 'none';
+            document.getElementById('mainLetter').style.display = 'none';
+            document.getElementById('questionText').style.display = 'none';
             document.getElementById('shayari-box').style.display = 'none';
             
+            // Show Success Message with back button inside it
             const msg = document.getElementById('forgiveness-message');
             msg.style.display = 'block';
             
-            // This pulls the local mp3 file you uploaded
+            // Play Audio track smoothly
             const audio = document.getElementById('loveSong');
             audio.volume = 0.5;
-            audio.play().catch(error => console.log("Audio waiting for user click interaction: ", error));
+            audio.play().catch(error => console.log("Audio waiting for interaction: ", error));
             
+            // Trigger beautiful particle bursts
             for (let i = 0; i < 25; i++) {
                 setTimeout(createHeart, i * 80);
             }
@@ -236,6 +267,24 @@
                 shayariBox.style.display = 'block';
                 shayariBox.innerHTML = "Teri gunhagaar hu mai..!!<br>Magar tu insaaf kr de..!! 🥹🥹<br><br>Dekh mai kaan pakdti hu..!!<br>Tu mujhe maaf kr de..!! 🤌✨💖";
                 shayariTriggered = true;
+            }
+        }
+
+        function resetPage() {
+            // Bring back the original screen layout cleanly
+            document.getElementById('forgiveness-message').style.display = 'none';
+            document.getElementById('btnGroup').style.display = 'flex';
+            document.getElementById('mainLetter').style.display = 'block';
+            document.getElementById('questionText').style.display = 'block';
+            
+            // Reset the 'Nahi krungi' button positions
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.display = 'block';
+            noBtn.style.transform = 'none';
+            
+            // Keep the Shayari box open so she can see it alongside the main card again
+            if (shayariTriggered) {
+                document.getElementById('shayari-box').style.display = 'block';
             }
         }
 
