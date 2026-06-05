@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf kr dijiyeee, Malkin..!!🥺</title>
+    <style>
+        :root {
+            --primary-pink: #ffb7b2;
+            --soft-rose: #ffccd5;
+            --deep-rose: #ff4d6d;
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffccd5 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px 25px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--deep-rose);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #5c5c5c;
+        }
+
+        .letter-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 22px;
+            border-radius: 16px;
+            border-left: 5px solid var(--deep-rose);
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .button-group {
+            position: relative;
+            height: 60px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-yes {
+            background: var(--deep-rose);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+            position: absolute;
+            left: 15%;
+        }
+
+        .btn-no {
+            background: #95a5a6;
+            color: white;
+            position: absolute;
+            right: 15%;
+        }
+
+        #forgiveness-message {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff3f5;
+            color: var(--deep-rose);
+            border-radius: 16px;
+            font-weight: bold;
+            border: 1px dashed var(--deep-rose);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.4);
+            pointer-events: none;
+            animation: floatUp 4s linear infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart-icon">😴❤️</div>
+        <h1>I'm So Sorry, Bachaa...</h1>
+        <p>To my 🐣, my sweetheart..</p>
+        
+        <div class="letter-box">
+            Hey <b>bacha</b>... I am sorry kl jldi sone ke liyee..!! Mujhe pata hai apne bahut jada intezaar kiya thaa..!! You’re my lettle baby and getting to talk to you at the end of the day is my favorite part of the day...! 🌷💖
+            <br><br>
+            Mera seer kl bahut jada drd ho raha tha..!! 😭 But that's no excuse for keeping  My <b>baby</b> waiting...!! Please forgive your sleepy idiot..!!🥹
+        </div>
+
+        <p style="font-weight: bold;">Maaf kiya?</p>
+        
+        <div class="button-group">
+            <button class="btn btn-yes" onclick="revealForgiveness()">Haan thik hai, Maaf kr diya..!🥰</button>
+            <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()">Nahi krungi! 😤</button>
+        </div>
+
+        <div id="forgiveness-message">
+            THANK YOU, MALKINNN! 🎉 <br>I Love You sooooo mucchhhhhhhh!!! 
+        </div>
+    </div>
+
+    <script>
+        function revealForgiveness() {
+            const msg = document.getElementById('forgiveness-message');
+            msg.style.display = 'block';
+            document.getElementById('noBtn').style.display = 'none';
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            // Playfully moves the "No" button away so she basically *has* to click yes
+            const randomX = Math.floor(Math.random() * 40) - 20;
+            const randomY = Math.floor(Math.random() * 40) - 20;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            
+            // Just a little trick: after a couple of hovers, she'll laugh and click yes
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>
