@@ -6,10 +6,11 @@
     <title>Maaf kr dijiyeee, Malkin..!!🥺</title>
     <style>
         :root {
-            --primary-pink: #ffb7b2;
-            --soft-rose: #ffccd5;
-            --deep-rose: #ff4d6d;
-            --text-color: #4a4a4a;
+            --lavender-light: #f3e8ff;
+            --lavender-mid: #e9d5ff;
+            --lavender-deep: #7c3aed;
+            --lavender-dark: #6b21a8;
+            --text-color: #3b0764;
         }
 
         * {
@@ -20,7 +21,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffe5ec 0%, #ffccd5 100%);
+            background: linear-gradient(135deg, #f5f3ff 0%, #edd8ff 100%);
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -31,28 +32,28 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 30px 20px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(12px);
+            padding: 35px 22px;
+            border-radius: 28px;
+            box-shadow: 0 10px 35px rgba(124, 58, 237, 0.12);
             text-align: center;
             max-width: 420px;
             width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             animation: fadeIn 1.2s ease-in-out;
         }
 
         .heart-icon {
             font-size: 45px;
-            animation: pulse 1.5s infinite;
+            animation: pulse 1.6s infinite;
             display: inline-block;
             margin-bottom: 10px;
         }
 
         h1 {
             font-size: 1.8rem;
-            color: var(--deep-rose);
+            color: var(--lavender-deep);
             margin-bottom: 12px;
             font-weight: 700;
         }
@@ -61,22 +62,21 @@
             font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 20px;
-            color: #5c5c5c;
+            color: #581c87;
         }
 
         .letter-box {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 18px;
-            border-radius: 16px;
-            border-left: 5px solid var(--deep-rose);
+            border-radius: 18px;
+            border-left: 5px solid var(--lavender-deep);
             text-align: left;
             margin-bottom: 20px;
             font-size: 0.98rem;
             line-height: 1.6;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.01);
         }
 
-        /* Fixed Mobile Container Layout */
         .button-group {
             display: flex;
             justify-content: center;
@@ -84,57 +84,78 @@
             gap: 15px;
             margin-top: 20px;
             position: relative;
-            min-height: 55px;
+            min-height: 60px;
         }
 
         .btn {
-            padding: 12px 24px;
+            padding: 12px 22px;
             font-size: 0.95rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
             border: none;
-            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .btn-yes {
-            background: var(--deep-rose);
+            background: var(--lavender-deep);
             color: white;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
-            z-index: 2;
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.05);
+            background: var(--lavender-dark);
         }
 
         .btn-no {
-            background: #95a5a6;
+            background: #94a3b8;
             color: white;
-            transition: transform 0.1s ease-out;
-            z-index: 1;
+        }
+
+        #shayari-box {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: #faf5ff;
+            border-radius: 14px;
+            color: #6b21a8;
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border: 1px solid var(--lavender-mid);
+            animation: fadeIn 0.4s ease-out;
+            text-align: center;
         }
 
         #forgiveness-message {
             display: none;
             margin-top: 25px;
             padding: 20px;
-            background: #fff3f5;
-            color: var(--deep-rose);
+            background: #f5f3ff;
+            color: var(--lavender-deep);
             border-radius: 16px;
             font-weight: bold;
-            border: 1px dashed var(--deep-rose);
-            animation: slideDown 0.5s ease-out;
+            border: 2px dashed var(--lavender-deep);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-size: 1.1rem;
         }
 
         .floating-heart {
             position: absolute;
-            color: rgba(255, 77, 109, 0.4);
+            color: rgba(124, 58, 237, 0.35);
             pointer-events: none;
             animation: floatUp 4s linear infinite;
-            z-index: 0;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes pulse {
@@ -143,28 +164,21 @@
             100% { transform: scale(1); }
         }
 
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         @keyframes floatUp {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Optimized for small screen mobiles */
-        @media (max-width: 360px) {
-            h1 { font-size: 1.6rem; }
-            .btn { padding: 10px 18px; font-size: 0.85rem; }
-            .button-group { gap: 8px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Link your uploaded song file directly here -->
+    <audio id="loveSong" loop>
+        <source src="Kisi-Ne-Na-Kiya-Hai-Jaisa-Ishq-Tera-Mera-Ringtone (1).mp3" type="audio/mp3">
+    </audio>
+
     <div class="container">
-        <div class="heart-icon">🩷🪽</div>
+        <div class="heart-icon">🔮✨</div>
         <h1>I'm So Sorry, Bachaa...</h1>
         <p>To my 🐣, my sweetheart..</p>
         
@@ -178,37 +192,58 @@
         
         <div class="button-group">
             <button class="btn btn-yes" onclick="revealForgiveness()">Haan thik hai, Maaf kr diya..!🥰</button>
-            <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">Nahi krungi! 😤</button>
+            <button class="btn btn-no" id="noBtn" onmouseover="handleNoInteraction()" onclick="handleNoInteraction()">Nahi krungi! 😤</button>
         </div>
 
+        <div id="shayari-box"></div>
+
         <div id="forgiveness-message">
-            THANK YOU, MALKINNN! 🎉 <br>I Love You sooooo mucchhhhhhhh!!! 
+            THANK YOU, MALKINNN! 🎉 <br>
+            <span style="font-size: 1.3rem;">I Love You sooooo mucchhhhhhhh!!! 💜✨</span>
+            <br><br>
+            <span style="font-size: 0.85rem; font-weight: normal; color: #6b21a8;">(Suno... track play ho gaya! 🎵)</span>
         </div>
     </div>
 
     <script>
+        let shayariTriggered = false;
+
         function revealForgiveness() {
+            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('shayari-box').style.display = 'none';
+            
             const msg = document.getElementById('forgiveness-message');
             msg.style.display = 'block';
-            document.getElementById('noBtn').style.display = 'none';
             
-            for (let i = 0; i < 20; i++) {
-                setTimeout(createHeart, i * 100);
+            // This pulls the local mp3 file you uploaded
+            const audio = document.getElementById('loveSong');
+            audio.volume = 0.5;
+            audio.play().catch(error => console.log("Audio waiting for user click interaction: ", error));
+            
+            for (let i = 0; i < 25; i++) {
+                setTimeout(createHeart, i * 80);
             }
         }
 
-        function moveNoButton() {
+        function handleNoInteraction() {
             const noBtn = document.getElementById('noBtn');
-            // Playful bounce radius safe for smartphone viewport bounds
             const randomX = Math.floor(Math.random() * 60) - 30;
-            const randomY = Math.floor(Math.random() * 60) - 30;
+            const randomY = Math.floor(Math.random() * 40) - 20;
             noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            
+            if (!shayariTriggered) {
+                const shayariBox = document.getElementById('shayari-box');
+                shayariBox.style.display = 'block';
+                shayariBox.innerHTML = "Teri gunhagaar hu mai..!!<br>Magar tu insaaf kr de..!! 🥹🥹<br><br>Dekh mai kaan pakdti hu..!!<br>Tu mujhe maaf kr de..!! 🤌✨💖";
+                shayariTriggered = true;
+            }
         }
 
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('floating-heart');
-            heart.innerHTML = '❤️';
+            const items = ['💜', '✨', '🌸', '🎵', '🥺'];
+            heart.innerHTML = items[Math.floor(Math.random() * items.length)];
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
             heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
@@ -217,7 +252,7 @@
             setTimeout(() => { heart.remove(); }, 4000);
         }
 
-        setInterval(createHeart, 1000);
+        setInterval(createHeart, 1200);
     </script>
 </body>
 </html>
